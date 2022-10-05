@@ -81,9 +81,9 @@
                      .attr('cx', xScale1_GDP(d['Explained by: GDP per capita']))
                      .attr('cy', yScale_happiness(d['Happiness score']))
                      .attr('r', '6')
-                     .attr('opacity', 0.6)
+                    //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', 'red');
+                     .style('fill', '#a8e6cf');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -91,9 +91,9 @@
                      .attr('cx', xScale2_SocialSupport(d['Explained by: Social support']))
                      .attr('cy', yScale_happiness(d['Happiness score']))
                      .attr('r', '6')
-                     .attr('opacity', 0.6)
+                    //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#f78919');
+                     .style('fill', '#dcedc1');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -101,9 +101,9 @@
                      .attr('cx', xScale3_Health(d['Explained by: Healthy life expectancy']))
                      .attr('cy', yScale_happiness(d['Happiness score']))
                      .attr('r', '6')
-                     .attr('opacity', 0.6)
+                    //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#f7e119');
+                     .style('fill', '#ffd3b6');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -111,9 +111,9 @@
                      .attr('cx', xScale4_Freedom(d['Explained by: Freedom to make life choices']))
                      .attr('cy', yScale_happiness(d['Happiness score']))
                      .attr('r', '6')
-                     .attr('opacity', 0.6)
+                    //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#4de31b');
+                     .style('fill', '#ffaaa5');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -121,9 +121,9 @@
                      .attr('cx', xScale5_Generosity(d['Explained by: Generosity']))
                      .attr('cy', yScale_happiness(d['Happiness score']))
                      .attr('r', '6')
-                     .attr('opacity', 0.6)
+                    //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#1aacc9');
+                     .style('fill', '#ff8b94');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -131,9 +131,9 @@
                      .attr('cx', xScale6_Corruption(d['Explained by: Perceptions of corruption']))
                      .attr('cy', yScale_happiness(d['Happiness score']))
                      .attr('r', '6')
-                     .attr('opacity', 0.6)
+                    //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#4e18d6');
+                     .style('fill', '#ffe1a8');
         })
         
         // adding title, x, y label
