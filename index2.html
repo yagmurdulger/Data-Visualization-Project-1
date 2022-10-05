@@ -82,7 +82,7 @@
                      .attr('r', '6')
                     //  .attr('opacity', 0.7)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#e32b17');
+                     .style('fill', '#88ddbe');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -92,7 +92,7 @@
                      .attr('r', '6')
                     //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#eb800e');
+                     .style('fill', '#bcdd88');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -102,7 +102,7 @@
                      .attr('r', '6')
                     //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#f7ef0a');
+                     .style('fill', '#ffa366');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -112,7 +112,7 @@
                      .attr('r', '6')
                     //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#14cc1e');
+                     .style('fill', '#ff8680');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -122,7 +122,7 @@
                      .attr('r', '6')
                     //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#0adbf2');
+                     .style('fill', '#ff4d5b');
         })
         data.forEach( (d, i) => {
             // console.log(d, i)
@@ -132,7 +132,7 @@
                      .attr('r', '6')
                     //  .attr('opacity', 0.6)
                      .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
-                     .style('fill', '#a009db');
+                     .style('fill', '#ffc966');
         })
         
         // adding title, x, y label
@@ -164,7 +164,7 @@
            .attr("text-anchor", "end")
            .attr("x", width)
            .attr("y", height - 6)
-           .text("Social support");
+           .text("Social support Score");
            
         svg3.append("text")
             .attr("x", (width / 2))             
@@ -179,7 +179,7 @@
            .attr("text-anchor", "end")
            .attr("x", width)
            .attr("y", height - 6)
-           .text("Healthy Life Expectancy");
+           .text("Healthy Life Expectancy Score");
 
               
         svg4.append("text")
@@ -195,7 +195,7 @@
            .attr("text-anchor", "end")
            .attr("x", width)
            .attr("y", height - 6)
-           .text("Freedom");
+           .text("Freedom Score");
 
               
         svg5.append("text")
@@ -211,7 +211,7 @@
            .attr("text-anchor", "end")
            .attr("x", width)
            .attr("y", height - 6)
-           .text("Generosity");
+           .text("Generosity Score");
 
               
         svg6.append("text")
@@ -227,7 +227,7 @@
            .attr("text-anchor", "end")
            .attr("x", width)
            .attr("y", height - 6)
-           .text("Corruption");
+           .text("Corruption Level");
 
 
         // adding y label 
@@ -236,7 +236,7 @@
            .attr("text-anchor", "end")
            .attr("dy", ".65em")
            .attr("transform", "rotate(-90)")
-           .text("Happiness");
+           .text("Happiness Score");
 
     
 
@@ -352,7 +352,6 @@
         svg6.append('g').attr('class', 'x gridlines') // See CSS at top of file
         .attr('transform',`translate(${margins.left},${chartHeight+margins.top+10})`)
         .call(bottomGridlines6);
-        // 聖這邊
         });
     </script>
     <br> 
