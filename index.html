@@ -7,6 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+  <style>
+  
+    .gridlines line {
+      stroke: #bbb;
+    }
+    
+    .gridlines .domain {
+      stroke: none;
+    }
+  
+</style>
 </head>
 
 <body style="font-family:Mulish;">
@@ -124,13 +135,139 @@
       getData();
     </script>
   </div>
+  <br>
+  <img src="./chart1.jpg" style="width:250px;height:250px" >
+  <img src="./chart2.jpg" style="width:250px;height:250px" >
+  <img src="./chart3.jpg" style="width:250px;height:250px" > 
+  <img src="./chart4.jpg" style="width:250px;height:250px" >
+  <img src="./chart5.jpg" style="width:250px;height:250px" >
+  <img src="./chart6.jpg" style="width:250px;height:250px" >
 
 
 
-  <div id="scatter-plot">
-
+  <!-- <div id="scatter-plot">
+    <svg id="svg1 " height="500" width="500" ></svg> <br><br><br><br><br>
+    <svg id="svg2 " height="500" width="500" ></svg><br><br><br><br><br>
+    <svg id="svg3 " height="500" width="500" ></svg><br><br><br><br><br>
+    <svg id="svg4 " height="500" width="500" ></svg><br><br><br><br><br>
+    <svg id="svg5 " height="500" width="500" ></svg><br><br><br><br><br>
+    <svg id="svg6 " height="500" width="500" ></svg><br><br><br><br><br>
   </div>
+  <script>
+    d3.csv('./World Happiness Report 2022.csv')
+          .then((data) => {
+              console.log('this is data', data)
 
+          const svg0 = d3.select("svg#scatter-plot")
+          console.log('svg0',svg0)
+          const svg1 = d3.select("svg#svg1")
+          const svg2 = d3.select("svg#svg2")
+          const svg3 = d3.select("svg#svg3")
+          const svg4 = d3.select("svg#svg4")
+          const svg5 = d3.select("svg#svg5")
+          const svg6 = d3.select("svg#svg6")
+          const width_scatter_plot = svg0.attr('width');
+          const height_scatter_plot = svg0.attr('height');
+          console.log("height_scatter_plot", height_scatter_plot)
+
+          const margins_scatter_plot = {top: 10, right: 10, bottom: 50, left: 50};
+          const chartWidth = width_scatter_plot - margins_scatter_plot.left - margins_scatter_plot.right;
+          const chartHeight = height_scatter_plot - margins_scatter_plot.top - margins_scatter_plot.bottom;
+
+          let chartArea1 = svg1.append('g').attr('transform',`translate(${margins_scatter_plot.left},${margins_scatter_plot.top})`);
+          let chartArea2 = svg2.append('g').attr('transform',`translate(${margins_scatter_plot.left},${margins_scatter_plot.top})`);    
+          let chartArea3 = svg3.append('g').attr('transform',`translate(${margins_scatter_plot.left},${margins_scatter_plot.top})`);    
+          let chartArea4 = svg4.append('g').attr('transform',`translate(${margins_scatter_plot.left},${margins_scatter_plot.top})`);    
+          let chartArea5 = svg5.append('g').attr('transform',`translate(${margins_scatter_plot.left},${margins_scatter_plot.top})`);    
+          let chartArea6 = svg6.append('g').attr('transform',`translate(${margins_scatter_plot.left},${margins_scatter_plot.top})`);    
+
+          const GDPExtent = d3.extent(data, d => d['Explained by: GDP per capita'])
+          const xScale1_GDP = d3.scaleLinear().domain(GDPExtent).range([0, chartHeight])
+
+          const SocialSupportExtent = d3.extent(data, d => d['Explained by: Social support'])
+          const xScale2_SocialSupport = d3.scaleLinear().domain(SocialSupportExtent).range([0, chartHeight])
+
+          const HealthExtent = d3.extent(data, d => d['Explained by: Healthy life expectancy'])
+          const xScale3_Health = d3.scaleLinear().domain(HealthExtent).range([0, chartHeight])
+
+          const FreedomExtent = d3.extent(data, d => d['Explained by: Freedom to make life choices'])
+          const xScale4_Freedom = d3.scaleLinear().domain(FreedomExtent).range([0, chartHeight])
+
+          const GenerosityExtent = d3.extent(data, d => d['Explained by: Generosity'])
+          const xScale5_Generosity = d3.scaleLinear().domain(GenerosityExtent).range([0, chartHeight])
+
+          const CorruptionExtent = d3.extent(data, d => d['Explained by: Perceptions of corruption'])
+          const xScale6_Corruption = d3.scaleLinear().domain(CorruptionExtent).range([0, chartHeight])
+
+          
+          const happinessExtent = d3.extent(data, d => d['Happiness score'])
+          const yScale_happiness = d3.scaleLinear().domain(happinessExtent).range([chartWidth, 0])     
+
+
+          // adding circle (data) 
+        data.forEach( (d, i) => {
+            // console.log(d, i)
+            chartArea1.append('circle')
+                     .attr('cx', xScale1_GDP(d['Explained by: GDP per capita']))
+                     .attr('cy', yScale_happiness(d['Happiness score']))
+                     .attr('r', '6')
+                    //  .attr('opacity', 0.7)
+                     .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
+                     .style('fill', '#88ddbe');
+        })
+        data.forEach( (d, i) => {
+            // console.log(d, i)
+            chartArea2.append('circle')
+                     .attr('cx', xScale2_SocialSupport(d['Explained by: Social support']))
+                     .attr('cy', yScale_happiness(d['Happiness score']))
+                     .attr('r', '6')
+                    //  .attr('opacity', 0.6)
+                     .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
+                     .style('fill', '#bcdd88');
+        })
+        data.forEach( (d, i) => {
+            // console.log(d, i)
+            chartArea3.append('circle')
+                     .attr('cx', xScale3_Health(d['Explained by: Healthy life expectancy']))
+                     .attr('cy', yScale_happiness(d['Happiness score']))
+                     .attr('r', '6')
+                    //  .attr('opacity', 0.6)
+                     .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
+                     .style('fill', '#ffa366');
+        })
+        data.forEach( (d, i) => {
+            // console.log(d, i)
+            chartArea4.append('circle')
+                     .attr('cx', xScale4_Freedom(d['Explained by: Freedom to make life choices']))
+                     .attr('cy', yScale_happiness(d['Happiness score']))
+                     .attr('r', '6')
+                    //  .attr('opacity', 0.6)
+                     .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
+                     .style('fill', '#ff8680');
+        })
+        data.forEach( (d, i) => {
+            // console.log(d, i)
+            chartArea5.append('circle')
+                     .attr('cx', xScale5_Generosity(d['Explained by: Generosity']))
+                     .attr('cy', yScale_happiness(d['Happiness score']))
+                     .attr('r', '6')
+                    //  .attr('opacity', 0.6)
+                     .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
+                     .style('fill', '#ff4d5b');
+        })
+        data.forEach( (d, i) => {
+            // console.log(d, i)
+            chartArea6.append('circle')
+                     .attr('cx', xScale6_Corruption(d['Explained by: Perceptions of corruption']))
+                     .attr('cy', yScale_happiness(d['Happiness score']))
+                     .attr('r', '6')
+                    //  .attr('opacity', 0.6)
+                     .attr('index', i)  // I usually include the index as an extra attr so that if points look weird, I can find out what's going on in the dataset
+                     .style('fill', '#ffc966');
+        })
+        });
+
+  </script> -->
 
 
 </body>
